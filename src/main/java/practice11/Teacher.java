@@ -1,8 +1,10 @@
 package practice11;
 
 import java.util.LinkedList;
+import java.util.Observable;
+import java.util.Observer;
 
-public class Teacher extends Person {
+public class Teacher extends Person implements Observer {
     private LinkedList<Klass> classes;
     private String subIntro = " I am a Teacher. I teach ";
 
@@ -35,5 +37,10 @@ public class Teacher extends Person {
     }
     public String introduceWith(Student student) {
         return isTeaching(student) ? super.introduce().concat(subIntro+student.getName()+".") : super.introduce().concat(" I am a Teacher. I don't teach "+student.getName()+".");
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        System.out.append("I am "+getName()+". I know LESTER has joined Class ITERATE OVER CLASS TO GET CLASS# WHERE LESTER BELONG.\n");
     }
 }

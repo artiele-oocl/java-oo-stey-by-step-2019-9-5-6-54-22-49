@@ -2,8 +2,9 @@ package practice11;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
-public class Klass {
+public class Klass extends Observable {
     private int number;
     private Student leader;
     private List<Student> students = new ArrayList<>();
@@ -25,18 +26,18 @@ public class Klass {
         return "Class "+getNumber();
     }
     protected void appendMember(Student student) {
-        Teacher teacher = null;
         students.add(student);
-        teacher.isTeaching(student);
-        System.out.append("I am Tom. I know "+student.getName()+" has joined Class "+getNumber()+".\n");
+        news();
     }
     private boolean isMember(Student student) {
         return student.getKlass().number == this.number;
     }
-//    private String getTeacherName() {
-//        for (Person person: persons) {
-//            if (person instanceof Teacher) return person.getName();
-//        }
-//        return null;
-//    }
+    void news() {
+        for(Student s: students){
+            //set change
+            setChanged();
+            //notify observers for change
+            notifyObservers(s);
+        }
+    }
 }
