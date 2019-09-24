@@ -17,6 +17,9 @@ public class Person {
     public int getAge() {
         return age;
     }
+    public int getId() {
+        return id;
+    }
     public String introduce() {
         return "My name is " + getName() + ". I am " + getAge() + " years old.";
     }
@@ -31,6 +34,6 @@ public class Person {
     }
     @Override
     public int hashCode() {
-        return Objects.hash(id, getName(), getAge());
+        return Objects.hash(getId(), getName(), getAge());
     }
 }

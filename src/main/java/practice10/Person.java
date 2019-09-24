@@ -34,6 +34,6 @@ public class Person {
     }
     @Override
     public int hashCode() {
-        return Objects.hash(id, getName(), getAge());
+        return Objects.hash(getId(), getName(), getAge());
     }
 }
