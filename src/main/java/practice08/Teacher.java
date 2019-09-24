@@ -14,6 +14,7 @@ public class Teacher extends Person {
     public Klass getKlass() {
         return klass;
     }
+    @Override
     public String introduce() {
         if (getKlass() != null) return super.introduce().concat(subIntro+klass.getDisplayName()+".");
         else return super.introduce().concat(subIntro+"No Class.");
